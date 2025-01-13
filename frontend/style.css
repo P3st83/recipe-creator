@@ -1,0 +1,98 @@
+/* General Body Styling */
+body {
+    font-family: 'Roboto', sans-serif; /* Professional and readable font */
+    background-image: url('./image/image-recipe.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    color: #000; /* General text color set to black */
+    margin: 0;
+    padding: 0;
+}
+
+/* Page Title */
+h1 {
+    margin: 20px 0;
+    text-align: center;
+    color: #000; /* Black for better contrast */
+    font-size: 4rem; /* Increased font size */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Subtle white shadow */
+}
+
+/* Form Container */
+.form-container {
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 400px;
+    background-color: #000; /* Black background for the form */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+}
+
+/* Form Styling */
+label {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #fff; /* White labels for contrast with black background */
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff; /* White input fields */
+    color: #000; /* Black text inside input fields */
+}
+
+/* Button Styling */
+button {
+    background-color: #007bff; /* Blue button for action visibility */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Recipe Card Styling */
+.recipe-card {
+    display: inline-block;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.85); /* Translucent background for recipe cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 200px;
+}
+
+.recipe-card img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.recipe-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.recipe-card a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.recipe-card a:hover {
+    text-decoration: underline;
+}
