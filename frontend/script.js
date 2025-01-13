@@ -1,18 +1,36 @@
+const validateInputs = (payload) => {
+    if (!payload.included_ingredients) {
+        alert("Please enter at least one ingredient.");
+        return false;
+    }
+    if (payload.calorie_limit && isNaN(payload.calorie_limit)) {
+        alert("Calorie limit must be a number.");
+        return false;
+    }
+    return true;
+};
+
 document.getElementById("generate-form").addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const resultsContainer = document.getElementById("results");
-    resultsContainer.innerHTML = "<div class='text-center'>Loading recipes...</div>";
+    resultsContainer.innerHTML = "<p>Loading recipes...</p>";
 
-    // Construct the payload, ensuring empty fields are sent as `null`
     const payload = {
-        dietary_restrictions: document.getElementById("dietary-restrictions").value.trim() || null,
-        excluded_ingredients: document.getElementById("excluded-ingredients").value.trim() || null,
-        included_ingredients: document.getElementById("included-ingredients").value.trim() || null,
-        calorie_limit: document.getElementById("calorie-limit").value.trim() || null,
-        cuisine: document.getElementById("cuisine").value.trim() || null,
+        dietary_restrictions: document.getElementById("dietary-restrictions").value.trim(),
+        excluded_ingredients: document.getElementById("excluded-ingredients").value.trim(),
+        included_ingredients: document.getElementById("included-ingredients").value.trim(),
+        calorie_limit: document.getElementById("calorie-limit").value.trim(),
+        cuisine: document.getElementById("cuisine").value.trim(),
     };
 
+    // Validate inputs
+    if (!validateInputs(payload)) {
+        resultsContainer.innerHTML = ""; // Clear loading message
+        return;
+    }
+
+    // Send request to backend
     try {
         const response = await fetch("http://127.0.0.1:8000/generate_recipes/", {
             method: "POST",
@@ -21,19 +39,17 @@ document.getElementById("generate-form").addEventListener("submit", async (event
         });
 
         if (!response.ok) {
-            const errorDetails = await response.text(); // Capture backend error message
-            throw new Error(`Failed to fetch recipes: ${response.statusText} - ${errorDetails}`);
+            throw new Error(`Failed to fetch recipes: ${response.statusText}`);
         }
 
         const data = await response.json();
         resultsContainer.innerHTML = "";
 
         if (data.message) {
-            resultsContainer.innerHTML = `<p class='text-center'>${data.message}</p>`;
+            resultsContainer.innerHTML = `<p>${data.message}</p>`;
             return;
         }
 
-        // Display recipes
         data.recipes.forEach((recipe) => {
             const recipeCard = document.createElement("div");
             recipeCard.classList.add("col-md-4", "recipe-card");
@@ -46,6 +62,6 @@ document.getElementById("generate-form").addEventListener("submit", async (event
         });
     } catch (error) {
         console.error("Error fetching recipes:", error);
-        resultsContainer.innerHTML = `<p class='text-center text-danger'>Error fetching recipes. Please try again.</p>`;
+        resultsContainer.innerHTML = `<p class="text-danger">Error fetching recipes. Please try again.</p>`;
     }
 });
