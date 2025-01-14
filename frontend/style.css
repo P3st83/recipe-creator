@@ -1,63 +1,48 @@
 /* General Body Styling */
 body {
-    font-family: 'Roboto', sans-serif; /* Professional and readable font */
-    background-image: url('./image/image-recipe.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    color: #000; /* General text color set to black */
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    text-align: center;
+    background-image: url('./image/Image-recipe.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #333;
 }
 
 /* Page Title */
 h1 {
-    margin: 20px 0;
-    text-align: center;
-    color: #000; /* Black for better contrast */
-    font-size: 4rem; /* Increased font size */
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.7); /* Subtle white shadow */
-}
-
-/* Form Container */
-.form-container {
-    margin: 50px auto;
-    padding: 20px;
-    max-width: 400px;
-    background-color: #000; /* Black background for the form */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 1px solid #333;
+    margin-top: 20px;
+    font-size: 3rem;
+    color: #000;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
 }
 
 /* Form Styling */
-label {
-    font-weight: bold;
-    font-size: 1rem;
-    color: #fff; /* White labels for contrast with black background */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    margin: 30px auto;
+    border-radius: 10px;
+    width: 90%; /* Full width for smaller screens */
+    max-width: 400px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0 20px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+input, button {
     font-size: 1rem;
-    background-color: #fff; /* White input fields */
-    color: #000; /* Black text inside input fields */
+    margin: 10px 0;
 }
 
-/* Button Styling */
 button {
-    background-color: #007bff; /* Blue button for action visibility */
+    background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    width: 100%;
 }
 
 button:hover {
@@ -66,33 +51,76 @@ button:hover {
 
 /* Recipe Card Styling */
 .recipe-card {
-    display: inline-block;
     margin: 15px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.85); /* Translucent background for recipe cards */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    max-width: 200px;
 }
 
 .recipe-card img {
-    max-width: 100%;
+    width: 100%;
     border-radius: 10px;
+    margin-bottom: 10px;
 }
 
 .recipe-card h3 {
     font-size: 1.2rem;
-    color: #333;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
 .recipe-card a {
     text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
 }
 
 .recipe-card a:hover {
-    text-decoration: underline;
+    background-color: #0056b3;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .form-container {
+        width: 95%;
+    }
+
+    .recipe-card {
+        width: 90%;
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+
+    input {
+        font-size: 0.9rem;
+    }
+}
+#results {
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    color: #000; /* Black text for contrast */
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    line-height: 1.6;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: left; /* Align text for better readability */
 }
